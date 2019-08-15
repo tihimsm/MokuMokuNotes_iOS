@@ -19,9 +19,6 @@ final class NoteRepository {
 
     func getNotes() {
         let notes = dataStore.getNotes()
-
-        // FIXME: set `delegate: NoteRepositoryDelegate` in advance
-        // hint: press `Command+Shift+F` to find texts in the project.
         delegate.noteRepositoryDidReceiveNotes(notes)
     }
 

@@ -18,7 +18,7 @@ final class NotePresenter {
 
     init(repository: NoteRepository) {
         self.repository = repository
-        // FIXME: set self to repository's `delegate: NoteRepositoryDelegate` here
+        self.repository.delegate = self
     }
 
     func getNotes() {
@@ -31,12 +31,8 @@ final class NotePresenter {
     }
 }
 
-// FIXME: extend NotePresenter as NoteRepositoryDelegate
-// hint: see also:
-//     🇯🇵 https://qiita.com/crea/items/4297bf60d222d661498f
-//     🇺🇸 https://www.natashatherobot.com/using-swift-extensions/
-// hint: some build error can be solved automatically by IDE. Try clicking a red circle.
-//extension NotePresenter: NoteRepositoryDelegate {
-//    // FIXME: tell `self.delegate: NotePresenterDelegate` that the presenter receives notes
-//}
-
+extension NotePresenter: NoteRepositoryDelegate {
+    func noteRepositoryDidReceiveNotes(_ notes: [Note]) {
+        delegate.notePresenterDidReceiveNotes(notes)
+    }
+}

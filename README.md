@@ -1,4 +1,4 @@
-# MokuMokuNotes_iOS
+# MokuMokuNotes_iOS(from takasek)
 
 A project you can learn how to develop iOS App just fixing build errors and runtime errors.
 
